@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<title>WatchlistApp</title>
+
+</head>
+
+
+<body>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+			<a class="navbar-brand" href="">WatchlistApp</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" 
+			  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			  aria-expanded="false" aria-label="Toggle navgation">
+			<span class="navbar-toggle-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="narvbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="watchlist">WatchList</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="watchlistItemForm">Submit an item</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<h2 class="mt-4">watchlist</h2>
+		<table class="table">
+			<thead class="thead-light">
+			<tr>
+				<th class="Text-left">Title</th>
+				<th class="Text-left">Rating</th>
+				<th class="Text-left">Priority</th>
+				<th class="Text-left">Comment</th>
+				<th class="Text-left"></th>
+			</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="movieRows : ${watchlistrows}">
+					<td th:text="${movieRows.title}">Avatar</td>
+					<td th:text="${movieRows.rating}">7.8</td>
+					<td th:text="${movieRows.priority}">Low</td>
+					<td th:text="${movieRows.comment}">Peter</td>
+					<td><a href="#" class="btn btn-info" role="button" th:href="@{/watchlistItemForm(id=${movieRows.id})}">Update</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr/>
+		
+		<div>
+			<div>Number of movie to watch :<span th:text="${noOfMovie}"></span></div>
+		</div>
+	</div>
+		
+	 
+		
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script src="https://stckpath.bootstrapcdn.com/bootstap/4.1.3/js/bootstrap.min.js"></script>
+		
+	 
+
+</body>
+
+</html>
